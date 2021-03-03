@@ -1,27 +1,25 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
+
 export default class Header extends Component {
   render() {
       return (
-      <div>
-        <header className='header-box'>
-        <NavLink className='header-link' exact activeClassName="active" 
-        to="/">Home</NavLink>
-
-        <NavLink className='header-link' exact activeClassName="active" 
-        to="/todo">Your Todos</NavLink>
-
-        <NavLink className='header-link' exact activeClassName="active" 
-        to="/signup">New User</NavLink>
-
-        <NavLink className='header-link' exact activeClassName="active" 
-        to="/login">Log In</NavLink>
-
-
-
-        </header>
-      </div>
+          <div>
+              <NavLink to='/' >Home</NavLink>
+              {
+              this.props.user && this.props.user.token && <>
+              <NavLink to='/todos'>Your Todos</NavLink>
+              <button className='btn' onClick={ this.props.handleLogout }>Log Out</button>
+              </>
+              }
+              {
+               (!this.props.user || !this.props.user.token) && <>
+              <NavLink to='/signin'>Sign In</NavLink>
+              <NavLink to='/signup'>Sign Up</NavLink>
+              </>
+              }
+          </div>
       )
   }
 }

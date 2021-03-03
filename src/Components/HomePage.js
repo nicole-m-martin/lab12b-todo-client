@@ -7,9 +7,9 @@ export default class HomePage extends React.Component {
       return (
         <>
             <h1>Welcome to Task Tracker</h1>
-            <div>
+            <div className='btn-box'>
             <h2><Link to="/signup" className='links'><button>New User</button></Link></h2>
-            <h2><Link to="/login" className='links' ><button>Returning User</button></Link></h2>
+            <h2><Link to="/signin" className='links' ><button>Returning User</button></Link></h2>
             </div>
           </>
       );

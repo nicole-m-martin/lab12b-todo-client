@@ -15,7 +15,7 @@ export default class LoginPage extends Component {
     e.preventDefault()
     const user = await logIn(this.state.email, this.state.password)
     this.props.handleNewUserChange(user)
-    this.props.history.push('/todo')
+    this.props.history.push('/todos')
     }
   
   render() {
@@ -25,15 +25,14 @@ export default class LoginPage extends Component {
         <h1>Log In</h1>
 
         <form 
-        onSubmit={ this.state.email } 
-        onChange={ this.handleEmailChange }>
+        onSubmit={ this.handleSubmit }>
 
         <div className="form-group">
           <label>
           Email
           <input 
           value={ this.state.email } 
-          onChange={ this.state.handleEmailChange } /> 
+          onChange={ this.handleEmailChange } /> 
           </label>
         </div>
 
@@ -46,7 +45,7 @@ export default class LoginPage extends Component {
           </label>
         </div>
 
-        <button type="submit" className="btn">Sign Up</button>
+        <button type="submit" className="btn">Log In</button>
         </form>
         
       </div>

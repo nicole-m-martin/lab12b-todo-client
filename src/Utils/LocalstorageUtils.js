@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
+export const USER = 'USER'
 
-export default class LocalstorageUtils extends Component {
-  render() {
-    return (
-      <div>
-        local storage
-      </div>
-    )
+export function getFromLocalStorage() {
+    const user = localStorage.getItem(USER)
+    if (user && user.token) return JSON.parse(user)
+
+    return {
+    id: '',
+    email: '',
+    token: ''
+    }
   }
-}
+
+export function putInLocalStorage(user) {
+    localStorage.setItem(USER, JSON.stringify(user));
+  }
+
