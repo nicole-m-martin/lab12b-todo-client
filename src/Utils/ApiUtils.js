@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-const URL = 'https://localhost:3000'
+const URL = 'https://whispering-mesa-66122.herokuapp.com'
 
 export async function signUp(email, password) {
   const response = await request 
