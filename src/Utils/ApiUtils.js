@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-const URL = 'https://nameless-refuge-82657.herokuapp.com/'
+const URL = 'https://nameless-refuge-82657.herokuapp.com'
 
 export async function signUp(email, password) {
   const response = await request 
