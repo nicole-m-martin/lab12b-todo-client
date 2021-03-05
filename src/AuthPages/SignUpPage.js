@@ -11,8 +11,8 @@ export default class SignUpPage extends Component {
 
   handlePasswordChange = (e) => this.setState({ password: e.target.value })
 
-  handleSubmit = async (e) => {
-    e.preventDefault()
+  handleSubmit = async e => {
+    e.preventDefault();
     const user = await signUp(this.state.email, this.state.password)
     this.props.handleNewUserChange(user)
     this.props.history.push('/todos')
@@ -40,6 +40,7 @@ export default class SignUpPage extends Component {
           <label>
           Password
           <input 
+          type='password'
           value={ this.state.password }
           onChange={ this.handlePasswordChange } />
           </label>

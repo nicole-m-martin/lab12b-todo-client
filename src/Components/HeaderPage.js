@@ -6,7 +6,7 @@ export default class Header extends Component {
   render() {
       return (
           <div>
-              <NavLink to='/' >Home</NavLink>
+              <NavLink to='/'>Home</NavLink>
               {
               this.props.user && this.props.user.token && <>
               <NavLink to='/todos'>Your Todos</NavLink>
@@ -15,7 +15,7 @@ export default class Header extends Component {
               }
               {
                (!this.props.user || !this.props.user.token) && <>
-              <NavLink to='/signin'>Sign In</NavLink>
+              <NavLink to='/signin'>Log In</NavLink>
               <NavLink to='/signup'>Sign Up</NavLink>
               </>
               }

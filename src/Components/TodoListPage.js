@@ -56,7 +56,7 @@ export default class TodoListPage extends Component {
         { this.state.todos.map(todo => <p key={ todo.todo } 
           onClick={ () => this.handleCompletedTodo(todo.id) }
           className={ 
-            `todos ${ todo.completed ? 'completed' : ''}` }>    
+            `todo ${ todo.completed ? 'completed' : ''}` }>    
           { todo.todo } </p> )}
           </div> 
         </div>

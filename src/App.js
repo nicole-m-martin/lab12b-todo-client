@@ -26,8 +26,7 @@ import { getFromLocalStorage, putInLocalStorage } from './Utils/LocalstorageUtil
     }
 
     handleLogout = () => {
-      localStorage.clear()
-      window.location.reload()
+      this.handleNewUserChange()
     }
 
 
@@ -47,16 +46,6 @@ import { getFromLocalStorage, putInLocalStorage } from './Utils/LocalstorageUtil
                      render={ (routerProps) => 
                      <HomePage {...routerProps } /> }
                      />
-                        
-                    <PrivateRoute 
-                      path="/todos" 
-                      exact
-                      token={ this.state.user && this.state.user.token }
-                      render={ (routerProps) =>
-                      <TodoListPage
-                      user={ this.state.user }
-                      { ...routerProps } /> }
-                      />
 
                     <Route 
                       path="/signin" 
@@ -74,6 +63,16 @@ import { getFromLocalStorage, putInLocalStorage } from './Utils/LocalstorageUtil
                       <SignUpPage 
                       handleNewUserChange={ this.handleNewUserChange }
                       { ...routerProps } /> } 
+                      />
+                        
+                    <PrivateRoute 
+                      path="/todos" 
+                      exact
+                      token={ this.state.user && this.state.user.token }
+                      render={ (routerProps) =>
+                      <TodoListPage
+                      user={ this.state.user }
+                      { ...routerProps } /> }
                       />
                     
                     </Switch>

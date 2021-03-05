@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-const URL = 'https://whispering-mesa-66122.herokuapp.com'
+const URL = 'https://localhost:3000'
 
 export async function signUp(email, password) {
   const response = await request 
@@ -15,7 +15,9 @@ export async function signUp(email, password) {
 export async function logIn(email, password) {
   const response = await request 
     .post(`${URL}/auth/signin`)
-    .send({ email, password })
+    .send({ 
+       email: email,
+       password: password })
 
   return response.body
 }  
@@ -31,7 +33,7 @@ export async function newTodo(todo, token) {
 
 export async function doneTodo(todoId, token) {
   const response = await request
-    .put(`${URL}/api/todos/${todoId}`)
+    .put(`${URL}/api/todos/${ todoId }`)
     .set('Authorization', token)
 
   return response.body;
